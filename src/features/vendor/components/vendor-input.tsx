@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "@/utils/cn";
 
-/* Shared field styling — mirrors the consumer app's pill inputs
+/* Shared field styling — mirrors the customer app's pill inputs
    (32px radius, #f6f7f9 fill, orange focus ring). */
 const fieldClasses = cn(
   "w-full rounded-2xl border border-input bg-muted px-4 text-base text-foreground outline-none transition-all duration-200 sm:text-sm",

@@ -6,7 +6,7 @@
 
 :root {
   /* DROPly brand palette — primary orange (#e85a1d) on a soft gray canvas.
-     Tokens mirror the consumer storefront at nsuk-taupe.vercel.app. */
+     Tokens mirror the customer storefront at nsuk-taupe.vercel.app. */
   --background: #f8f9fa;
   --foreground: #1d1d1f;
   --card: #ffffff;
@@ -100,7 +100,7 @@
 }
 
 .dark {
-  /* DROPly dark theme — mirrors [data-theme=dark] on the consumer app. */
+  /* DROPly dark theme — mirrors [data-theme=dark] on the customer app. */
   --background: #121214;
   --foreground: #f5f5f7;
   --card: #1c1c1e;
@@ -152,7 +152,7 @@
   }
 }
 
-/* DROPly page entrance — matches the consumer app's .animate-fade-in */
+/* DROPly page entrance — matches the customer app's .animate-fade-in */
 @keyframes fadeInUp {
   0% {
     opacity: 0;

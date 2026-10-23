@@ -11,7 +11,7 @@ interface VendorPageContainerProps {
 
 /**
  * Shared page shell for the vendor portal — soft gray canvas, centered
- * content, and the same fade-in entrance the consumer app uses.
+ * content, and the same fade-in entrance the customer app uses.
  */
 export function VendorPageContainer({
   children,

@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 
 /**
  * DROPly card — white surface, hairline border, soft shadow, generous radius.
- * Matches the consumer storefront's card treatment.
+ * Matches the customer storefront's card treatment.
  */
 export function VendorCard({
   className,

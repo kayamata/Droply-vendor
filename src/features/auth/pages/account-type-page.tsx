@@ -1,11 +1,11 @@
 import { ShoppingBag, Store } from "lucide-react";
 
-import { CONSUMER_APP_URL, ROUTES } from "@/utils/constants";
+import { CUSTOMER_APP_URL, ROUTES } from "@/utils/constants";
 import { AccountTypeCard } from "@/features/auth/components";
 
 /**
  * Entry point: "How will you be using DROPly?"
- * Consumers continue to the storefront; vendors enter the portal.
+ * Customers continue to the storefront; vendors enter the portal.
  */
 export function AccountTypePage() {
   return (
@@ -27,10 +27,10 @@ export function AccountTypePage() {
         {/* Account type options */}
         <div className="mt-9 flex flex-col gap-4">
           <AccountTypeCard
-            href={CONSUMER_APP_URL}
+            href={CUSTOMER_APP_URL}
             external
             icon={ShoppingBag}
-            title="Consumer"
+            title="Customer"
             description="Order food & groceries on campus"
           />
           <AccountTypeCard

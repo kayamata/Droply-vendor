@@ -11,7 +11,7 @@ interface VendorLogoProps {
 
 /**
  * DROPly wordmark for the vendor portal — same brand, "Vendor" context tag.
- * The consumer app ships an image logo; this keeps the same orange-forward
+ * The customer app ships an image logo; this keeps the same orange-forward
  * treatment with a store mark for the business side.
  */
 export function VendorLogo({ href = ROUTES.vendor.root, className }: VendorLogoProps) {

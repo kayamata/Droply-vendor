@@ -25,12 +25,12 @@ export const ROUTES = {
 } as const;
 
 /**
- * The consumer-facing DROPly storefront.
- * When this app is merged with the consumer codebase this should point at the
- * app's own consumer routes (e.g. "/"). Until then it links to the live
- * consumer experience.
+ * The customer-facing DROPly storefront.
+ * The customer experience is being merged into this app under /customer —
+ * once those routes ship, point the account-type card at ROUTES.customer.root
+ * instead of this external URL.
  */
-export const CONSUMER_APP_URL = "https://nsuk-taupe.vercel.app";
+export const CUSTOMER_APP_URL = "https://nsuk-taupe.vercel.app";
 
 /** Business categories offered during vendor registration. */
 export const VENDOR_CATEGORIES = [

@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn";
 
 /**
  * A quiet illustration of what vendors get — a mock incoming order card on
- * the consumer app's light-blue tile backdrop, with floating stat chips.
+ * the customer app's light-blue tile backdrop, with floating stat chips.
  * Emoji + lucide, same imagery language as the storefront.
  */
 export function VendorHeroVisual({ className }: { className?: string }) {
@@ -16,7 +16,7 @@ export function VendorHeroVisual({ className }: { className?: string }) {
       )}
       aria-hidden="true"
     >
-      {/* Emoji tile strip — same treatment as consumer category tiles */}
+      {/* Emoji tile strip — same treatment as customer category tiles */}
       <div className="flex items-center gap-3 text-3xl sm:text-4xl">
         <span className="flex size-14 items-center justify-center rounded-2xl bg-card shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:size-16">
           🍛

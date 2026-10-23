@@ -33,7 +33,7 @@ const SECTIONS = [
 
 /**
  * Section navigation for the vendor portal — horizontal pill scroller,
- * same pattern as the consumer app's category pills.
+ * same pattern as the customer app's category pills.
  */
 export function VendorNavigation({ className }: { className?: string }) {
   const pathname = usePathname();
