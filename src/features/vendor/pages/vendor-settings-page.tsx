@@ -51,7 +51,7 @@ export function VendorSettingsPage() {
 
   return (
     <VendorPortalShell title="Settings">
-      <div className="grid gap-6 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         {/* Store profile summary */}
         <VendorCard className="h-fit p-5 sm:p-6 lg:col-span-2">
           <div className="flex items-center gap-4">
@@ -114,7 +114,7 @@ export function VendorSettingsPage() {
               value={form.description}
               onChange={update("description")}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <VendorSelect
                 label="Category"
                 options={[
@@ -146,7 +146,7 @@ export function VendorSettingsPage() {
               value={form.address}
               onChange={update("address")}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <VendorInput
                 label="Opening hours"
                 icon={<Clock />}

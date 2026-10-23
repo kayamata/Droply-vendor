@@ -12,6 +12,7 @@ export { VendorLoginForm } from "./vendor-login-form";
 export { VendorRegisterForm } from "./vendor-register-form";
 export { VendorBusinessForm } from "./vendor-business-form";
 export { VendorNavigation } from "./vendor-navigation";
+export { VendorBottomNav } from "./vendor-bottom-nav";
 export { VendorPortalShell } from "./vendor-portal-shell";
 export { VendorStatCard } from "./vendor-stat-card";
 export { VendorRevenueChart } from "./vendor-revenue-chart";

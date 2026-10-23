@@ -38,7 +38,7 @@ export function VendorPromotionsPage() {
         </VendorButton>
       }
     >
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {promotions.map((promo) => (
           <VendorCard key={promo.id} className="flex flex-col gap-4 p-5">
             <div className="flex items-start justify-between gap-3">
@@ -58,12 +58,14 @@ export function VendorPromotionsPage() {
               </span>
             </div>
 
-            <div className="flex items-center justify-between border-t border-border pt-3 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <CalendarDays className="size-3.5" />
-                {promo.startLabel} – {promo.endLabel}
+            <div className="flex items-center justify-between gap-2 border-t border-border pt-3 text-xs text-muted-foreground">
+              <span className="flex min-w-0 items-center gap-1.5">
+                <CalendarDays className="size-3.5 shrink-0" />
+                <span className="truncate">
+                  {promo.startLabel} – {promo.endLabel}
+                </span>
               </span>
-              <span className="font-semibold text-foreground">
+              <span className="shrink-0 font-semibold text-foreground">
                 {promo.usageCount} uses
               </span>
             </div>

@@ -83,7 +83,7 @@ export function VendorAnalyticsPage() {
           />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <VendorCard className="p-5 sm:p-6">
             <h2 className="text-base font-bold text-foreground">
               Revenue — last 7 days
@@ -102,7 +102,7 @@ export function VendorAnalyticsPage() {
           </VendorCard>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Orders by status */}
           <VendorCard className="p-5 sm:p-6">
             <h2 className="text-base font-bold text-foreground">

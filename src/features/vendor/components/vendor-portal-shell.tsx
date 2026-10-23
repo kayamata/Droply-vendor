@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { VendorBottomNav } from "@/features/vendor/components/vendor-bottom-nav";
 import { VendorHeader } from "@/features/vendor/components/vendor-header";
 import { VendorNavigation } from "@/features/vendor/components/vendor-navigation";
 import { VendorNotificationBell } from "@/features/vendor/components/vendor-notification-bell";
@@ -34,7 +35,10 @@ export function VendorPortalShell({
           </>
         }
       />
-      <VendorPageContainer width="wide" className="flex-1 py-6 sm:py-8">
+      <VendorPageContainer
+        width="wide"
+        className="flex-1 py-6 pb-[calc(6rem+env(safe-area-inset-bottom))] sm:py-8 sm:pb-8"
+      >
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -49,6 +53,7 @@ export function VendorPortalShell({
         <VendorNavigation className="mt-5" />
         <div className="mt-6">{children}</div>
       </VendorPageContainer>
+      <VendorBottomNav />
       <VendorToaster />
     </div>
   );

@@ -115,7 +115,7 @@ export function VendorDashboardPage() {
           />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           {/* Revenue chart */}
           <VendorCard className="p-5 sm:p-6 lg:col-span-3">
             <div className="flex items-center justify-between">
@@ -179,7 +179,7 @@ export function VendorDashboardPage() {
           </VendorCard>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           {/* Live order queue */}
           <div className="flex flex-col gap-3 lg:col-span-3">
             <div className="flex items-center justify-between">

@@ -39,7 +39,10 @@ export function VendorNavigation({ className }: { className?: string }) {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Vendor sections" className={cn("w-full", className)}>
+    <nav
+      aria-label="Vendor sections"
+      className={cn("hidden w-full sm:block", className)}
+    >
       <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 py-1 sm:mx-0 sm:flex-wrap sm:px-0">
         {SECTIONS.map(({ href, label, icon: Icon }) => {
           const active = pathname === href;

@@ -69,7 +69,7 @@ export function VendorPayoutsPage() {
           />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
           {/* Transactions ledger */}
           <VendorCard className="overflow-hidden lg:col-span-3">
             <div className="flex items-center justify-between border-b border-border px-5 py-4">

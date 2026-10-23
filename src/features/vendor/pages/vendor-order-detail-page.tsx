@@ -87,7 +87,7 @@ export function VendorOrderDetailPage({ orderId }: { orderId: string }) {
               </p>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-5">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-5">
               {/* Items + totals */}
               <VendorCard className="p-5 sm:p-6 md:col-span-3">
                 <h2 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">
