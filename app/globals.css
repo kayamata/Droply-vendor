@@ -6,7 +6,7 @@
 
 :root {
   /* DROPly brand palette — primary orange (#e85a1d) on a soft gray canvas.
-     Tokens mirror the customer storefront at nsuk-taupe.vercel.app. */
+     Shared by the vendor portal and the /customer storefront. */
   --background: #f8f9fa;
   --foreground: #1d1d1f;
   --card: #ffffff;
@@ -149,6 +149,14 @@
   }
   img {
     @apply select-none;
+  }
+  /* App-like touch behavior: no gray flash on tap, no double-tap-zoom delay. */
+  a,
+  button,
+  [role="button"],
+  [role="link"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

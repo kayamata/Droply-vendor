@@ -7,6 +7,25 @@
  */
 export const ROUTES = {
   home: "/",
+  customer: {
+    root: "/customer",
+    categories: "/customer/categories",
+    stores: "/customer/stores",
+    store: (storeId: string) => `/customer/stores/${storeId}`,
+    storeCategory: (storeId: string, category: string) =>
+      `/customer/stores/${storeId}/category/${encodeURIComponent(category)}`,
+    product: (productId: string) => `/customer/products/${productId}`,
+    cart: "/customer/cart",
+    checkout: "/customer/checkout",
+    payment: "/customer/checkout/payment",
+    orderConfirmation: "/customer/order-confirmation",
+    favorites: "/customer/favorites",
+    profile: "/customer/profile",
+    orders: "/customer/profile/orders",
+    rewards: "/customer/profile/rewards",
+    notifications: "/customer/profile/notifications",
+    faq: "/customer/profile/faq",
+  },
   vendor: {
     root: "/vendor",
     login: "/vendor/login",
@@ -23,14 +42,6 @@ export const ROUTES = {
     settings: "/vendor/settings",
   },
 } as const;
-
-/**
- * The customer-facing DROPly storefront.
- * The customer experience is being merged into this app under /customer —
- * once those routes ship, point the account-type card at ROUTES.customer.root
- * instead of this external URL.
- */
-export const CUSTOMER_APP_URL = "https://nsuk-taupe.vercel.app";
 
 /** Business categories offered during vendor registration. */
 export const VENDOR_CATEGORIES = [

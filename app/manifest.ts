@@ -5,8 +5,8 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "DROPly",
     short_name: "DROPly",
     description:
-      "DROPly Vendor — manage your campus storefront, products, and orders.",
-    start_url: "/vendor",
+      "DROPly — order food and groceries on campus, or run your storefront.",
+    start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "any",

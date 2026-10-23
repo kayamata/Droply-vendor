@@ -1,6 +1,6 @@
 import { ShoppingBag, Store } from "lucide-react";
 
-import { CUSTOMER_APP_URL, ROUTES } from "@/utils/constants";
+import { ROUTES } from "@/utils/constants";
 import { AccountTypeCard } from "@/features/auth/components";
 
 /**
@@ -27,8 +27,7 @@ export function AccountTypePage() {
         {/* Account type options */}
         <div className="mt-9 flex flex-col gap-4">
           <AccountTypeCard
-            href={CUSTOMER_APP_URL}
-            external
+            href={ROUTES.customer.root}
             icon={ShoppingBag}
             title="Customer"
             description="Order food & groceries on campus"
