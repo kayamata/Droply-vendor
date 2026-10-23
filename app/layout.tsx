@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers";
@@ -14,9 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next Scaffold — AI-Ready Next.js Architecture",
+  title: {
+    default: "DROPly Vendor — Grow your business on campus",
+    template: "%s | DROPly Vendor",
+  },
   description:
-    "A modular Next.js scaffold built for AI agents. Feature-sliced architecture, enforced boundaries, shadcn/ui, TanStack Query, and NextAuth — so your AI writes code that actually fits.",
+    "Reach more customers on campus, manage your orders, and grow your business — all from one place.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#e85a1d",
 };
 
 export default function RootLayout({
