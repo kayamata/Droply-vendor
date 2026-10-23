@@ -4,6 +4,7 @@ import * as React from "react";
 import { CheckCircle2, Clock, Mail, MapPin, Phone, Store } from "lucide-react";
 
 import { useVendorDemo, vendorDemoActions } from "@/features/vendor/api";
+import { PwaInstallCard } from "@/features/pwa";
 import { VENDOR_CATEGORIES } from "@/utils/constants";
 import {
   VendorButton,
@@ -173,6 +174,10 @@ export function VendorSettingsPage() {
             </div>
           </form>
         </VendorCard>
+      </div>
+
+      <div className="mt-6">
+        <PwaInstallCard />
       </div>
     </VendorPortalShell>
   );

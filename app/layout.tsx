@@ -20,11 +20,25 @@ export const metadata: Metadata = {
   },
   description:
     "Reach more customers on campus, manage your orders, and grow your business — all from one place.",
+  applicationName: "DROPly",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "DROPly",
+  },
+  icons: {
+    apple: "/icons/apple-touch-icon.png",
+  },
+  other: {
+    // Older iOS Safari still requires the legacy capable meta for standalone.
+    "apple-mobile-web-app-capable": "yes",
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#e85a1d",
 };
 
