@@ -115,7 +115,14 @@ let hydratedVendorId: string | null = null;
 function hydrateSessionProducts() {
   if (typeof window === "undefined") return;
   const vendorId = readSessionVendorId();
-  if (!vendorId || vendorId === hydratedVendorId) return;
+  if (!vendorId) {
+    if (hydratedVendorId) {
+      hydratedVendorId = null;
+      setState((prev) => ({ ...prev, products: DEMO_PRODUCTS }));
+    }
+    return;
+  }
+  if (vendorId === hydratedVendorId) return;
   hydratedVendorId = vendorId;
   let products: VendorProduct[] = [];
   try {

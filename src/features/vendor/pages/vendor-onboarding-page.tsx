@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ROUTES } from "@/utils/constants";
 import {
   VendorAuthCard,
+  VendorAuthGuard,
   VendorBusinessForm,
   VendorHeader,
   VendorPageContainer,
@@ -11,6 +12,7 @@ import {
 export function VendorOnboardingPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
+      <VendorAuthGuard />
       <VendorHeader
         backHref={ROUTES.vendor.register}
         backLabel="Back"

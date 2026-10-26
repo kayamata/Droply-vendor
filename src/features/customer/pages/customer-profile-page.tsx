@@ -22,8 +22,10 @@ import { ROUTES } from "@/utils/constants";
 import { formatNaira } from "@/utils/format";
 import {
   customerActions,
+  customerAuthActions,
   DEMO_CUSTOMER_PROFILE,
   useCustomerDemo,
+  useCustomerSession,
 } from "@/features/customer/api";
 import { CustomerShell } from "@/features/customer/components";
 
@@ -45,7 +47,14 @@ interface MenuItem {
 export function CustomerProfilePage() {
   const router = useRouter();
   const state = useCustomerDemo();
+  const session = useCustomerSession();
   const user = DEMO_CUSTOMER_PROFILE;
+  const displayName = session?.name ?? user.name;
+
+  const handleSignOut = () => {
+    customerAuthActions.signOut();
+    router.replace(ROUTES.home);
+  };
 
   const menuItems: MenuItem[] = [
     { id: "orders", label: "Order History", icon: ShoppingBag, href: ROUTES.customer.orders },
@@ -54,9 +63,10 @@ export function CustomerProfilePage() {
       id: "account",
       label: "Account",
       icon: User,
+      badge: session?.identifier,
       onClick: () =>
         customerActions.showToast(
-          `${user.name} · ${user.username}@nsuk.edu.ng`
+          session ? `${displayName} · ${session.identifier}` : displayName
         ),
     },
     {
@@ -92,7 +102,7 @@ export function CustomerProfilePage() {
       label: "Log out",
       icon: LogOut,
       danger: true,
-      onClick: () => customerActions.showToast("Logged out (demo)"),
+      onClick: handleSignOut,
     },
   ];
 
@@ -104,7 +114,7 @@ export function CustomerProfilePage() {
           {user.avatarEmoji}
         </div>
         <h2 className="text-[22px] font-extrabold tracking-tight text-foreground">
-          {user.name}
+          {displayName}
         </h2>
         <div className="mt-2.5 flex gap-2">
           <button

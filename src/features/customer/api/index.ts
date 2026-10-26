@@ -28,3 +28,14 @@ export {
   CUSTOMER_REWARDS,
   CUSTOMER_FAQS,
 } from "./demo-data";
+
+/* Mocked customer auth — sign-in/register mutations, the reactive session
+   hook, and signOut. Swap fetchers for apiClient calls when the backend
+   exists (same seam as the vendor auth layer). */
+export {
+  useCustomerLogin,
+  useCustomerRegister,
+  useCustomerSession,
+  readCustomerSession,
+  customerAuthActions,
+} from "./customer-auth";

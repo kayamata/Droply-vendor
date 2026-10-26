@@ -1,11 +1,25 @@
 "use client";
 
 import * as React from "react";
-import { CheckCircle2, Clock, Mail, MapPin, Phone, Store } from "lucide-react";
+import { useRouter } from "next/navigation";
+import {
+  CheckCircle2,
+  Clock,
+  LogOut,
+  Mail,
+  MapPin,
+  Phone,
+  Store,
+} from "lucide-react";
 
-import { useVendorDemo, vendorDemoActions } from "@/features/vendor/api";
+import {
+  useVendorDemo,
+  useVendorSession,
+  vendorAuthActions,
+  vendorDemoActions,
+} from "@/features/vendor/api";
 import { PwaInstallCard } from "@/features/pwa";
-import { VENDOR_CATEGORIES } from "@/utils/constants";
+import { ROUTES, VENDOR_CATEGORIES } from "@/utils/constants";
 import {
   VendorButton,
   VendorCard,
@@ -24,9 +38,16 @@ const STORE_STATUS_OPTIONS: { value: StoreStatus; label: string }[] = [
 ];
 
 export function VendorSettingsPage() {
+  const router = useRouter();
   const { vendor } = useVendorDemo();
+  const session = useVendorSession();
   const [form, setForm] = React.useState(vendor);
   const [saved, setSaved] = React.useState(false);
+
+  const handleSignOut = () => {
+    vendorAuthActions.signOut();
+    router.replace(ROUTES.home);
+  };
 
   const update =
     (field: keyof typeof form) =>
@@ -176,8 +197,34 @@ export function VendorSettingsPage() {
         </VendorCard>
       </div>
 
-      <div className="mt-6">
-        <PwaInstallCard />
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-5">
+        <VendorCard className="h-fit p-5 sm:p-6 lg:col-span-3">
+          <h2 className="text-base font-bold text-foreground">Account</h2>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Signed in as{" "}
+            <span className="font-semibold text-foreground">
+              {session?.businessName ?? vendor.businessName}
+            </span>
+            {session?.email ? ` · ${session.email}` : ""}
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <VendorButton
+              variant="secondary"
+              size="md"
+              className="w-auto border-destructive/40 text-destructive hover:bg-destructive/10"
+              onClick={handleSignOut}
+            >
+              <LogOut className="size-4" />
+              Log out
+            </VendorButton>
+            <p className="text-xs text-muted-foreground">
+              You&apos;ll be returned to the DROPly welcome page.
+            </p>
+          </div>
+        </VendorCard>
+        <div className="lg:col-span-2">
+          <PwaInstallCard />
+        </div>
       </div>
     </VendorPortalShell>
   );

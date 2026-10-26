@@ -4,6 +4,7 @@ import { BarChart3, ClipboardList, Store } from "lucide-react";
 import { ROUTES } from "@/utils/constants";
 import {
   VendorAuthCard,
+  VendorAuthRedirect,
   VendorButton,
   VendorHeader,
   VendorHeroVisual,
@@ -18,6 +19,7 @@ const perks = [
 export function VendorWelcomePage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
+      <VendorAuthRedirect />
       <VendorHeader
         backHref={ROUTES.home}
         backLabel="Back to DROPly"

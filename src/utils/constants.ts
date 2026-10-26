@@ -9,6 +9,8 @@ export const ROUTES = {
   home: "/",
   customer: {
     root: "/customer",
+    login: "/customer/login",
+    register: "/customer/register",
     categories: "/customer/categories",
     stores: "/customer/stores",
     store: (storeId: string) => `/customer/stores/${storeId}`,
@@ -53,8 +55,9 @@ export const VENDOR_CATEGORIES = [
   { value: "other", label: "Other" },
 ] as const;
 
-/** sessionStorage keys used by the mocked vendor onboarding/auth flow. */
+/** sessionStorage keys used by the mocked auth flows (no backend yet). */
 export const STORAGE_KEYS = {
+  customerSession: "droply.customer.session",
   vendorOnboardingDraft: "droply.vendor.onboarding-draft",
   vendorSession: "droply.vendor.session",
   /** localStorage prefix for a vendor's products — suffixed with the vendor id. */

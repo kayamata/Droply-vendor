@@ -112,6 +112,27 @@ export interface CustomerProfile {
   avatarEmoji: string;
 }
 
+/* ------------------------------ auth ------------------------------------- */
+
+/** The signed-in customer — persisted to sessionStorage until sign-out. */
+export interface CustomerSession {
+  id: string;
+  name: string;
+  /** Email or phone the customer signed in with. */
+  identifier: string;
+}
+
+export interface CustomerLoginPayload {
+  identifier: string;
+  password: string;
+}
+
+export interface CustomerRegisterPayload {
+  name: string;
+  identifier: string;
+  password: string;
+}
+
 /** A featured offer card on the home screen. */
 export interface CustomerOffer {
   id: string;

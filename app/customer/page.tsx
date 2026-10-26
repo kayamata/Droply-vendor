@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { CustomerHomePage } from "@/features/customer/pages";
+import { CustomerEntryPage } from "@/features/customer/pages";
 
 export const metadata: Metadata = {
   title: "DROPly — Food & groceries delivered on campus",
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CustomerHomePage />;
+  return <CustomerEntryPage />;
 }

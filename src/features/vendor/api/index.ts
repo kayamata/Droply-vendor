@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useMutation } from "@tanstack/react-query";
 
 import { STORAGE_KEYS } from "@/utils/constants";
@@ -29,7 +30,61 @@ function simulateNetwork(): Promise<void> {
 function persistMockSession(vendor: VendorProfile) {
   if (typeof window === "undefined") return;
   sessionStorage.setItem(STORAGE_KEYS.vendorSession, JSON.stringify(vendor));
+  notifyVendorSession();
 }
+
+/* ---------------------------- session store -------------------------------- */
+
+const sessionListeners = new Set<() => void>();
+
+function notifyVendorSession() {
+  sessionListeners.forEach((listener) => listener());
+}
+
+function subscribeVendorSession(callback: () => void) {
+  sessionListeners.add(callback);
+  return () => {
+    sessionListeners.delete(callback);
+  };
+}
+
+/* useSyncExternalStore requires a stable snapshot — cache by the raw string
+   so unchanged sessions return the same object reference. */
+let cachedRaw: string | null = null;
+let cachedSession: VendorProfile | null = null;
+
+export function readVendorSession(): VendorProfile | null {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEYS.vendorSession);
+    if (raw !== cachedRaw) {
+      cachedRaw = raw;
+      cachedSession = raw ? (JSON.parse(raw) as VendorProfile) : null;
+    }
+    return cachedSession;
+  } catch {
+    return null;
+  }
+}
+
+const getServerSessionSnapshot = (): VendorProfile | null => null;
+
+/** Reactive read of the signed-in vendor — null when logged out. */
+export function useVendorSession(): VendorProfile | null {
+  return React.useSyncExternalStore(
+    subscribeVendorSession,
+    readVendorSession,
+    getServerSessionSnapshot
+  );
+}
+
+export const vendorAuthActions = {
+  /** End the vendor session and drop any in-progress onboarding draft. */
+  signOut() {
+    sessionStorage.removeItem(STORAGE_KEYS.vendorSession);
+    sessionStorage.removeItem(STORAGE_KEYS.vendorOnboardingDraft);
+    notifyVendorSession();
+  },
+};
 
 // --- Raw fetchers (private — swap internals for apiClient when ready) ---
 

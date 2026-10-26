@@ -1,10 +1,12 @@
 import * as React from "react";
 
+import { VendorAuthGuard } from "@/features/vendor/components/vendor-auth-guard";
 import { VendorBottomNav } from "@/features/vendor/components/vendor-bottom-nav";
 import { VendorHeader } from "@/features/vendor/components/vendor-header";
 import { VendorNavigation } from "@/features/vendor/components/vendor-navigation";
 import { VendorNotificationBell } from "@/features/vendor/components/vendor-notification-bell";
 import { VendorPageContainer } from "@/features/vendor/components/vendor-page-container";
+import { VendorSessionBadge } from "@/features/vendor/components/vendor-session-badge";
 import { VendorStoreStatus } from "@/features/vendor/components/vendor-store-status";
 import { VendorToaster } from "@/features/vendor/components/vendor-toaster";
 
@@ -26,6 +28,7 @@ export function VendorPortalShell({
 }: VendorPortalShellProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
+      <VendorAuthGuard />
       <VendorHeader
         backHref={null}
         actions={
@@ -44,9 +47,7 @@ export function VendorPortalShell({
             <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
               {title}
             </h1>
-            <span className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-              Demo account
-            </span>
+            <VendorSessionBadge />
           </div>
           {actions}
         </div>

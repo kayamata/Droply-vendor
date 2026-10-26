@@ -6,7 +6,10 @@ import { cn } from "@/utils/cn";
 import { CustomerBottomNav } from "@/features/customer/components/customer-bottom-nav";
 import { CustomerNavbar } from "@/features/customer/components/customer-navbar";
 import { CustomerToaster } from "@/features/customer/components/customer-toaster";
-import { useOrderTicker } from "@/features/customer/hooks";
+import {
+  useCustomerAuthGuard,
+  useOrderTicker,
+} from "@/features/customer/hooks";
 
 interface CustomerShellProps {
   children: React.ReactNode;
@@ -17,13 +20,16 @@ interface CustomerShellProps {
 
 /**
  * Shared chrome for the customer storefront — sticky navbar, centered content
- * column, mobile bottom nav, the demo order ticker, and the toast host.
+ * column, mobile bottom nav, the demo order ticker, the session guard, and
+ * the toast host. Auth screens don't use the shell, so every shell page is
+ * gated.
  */
 export function CustomerShell({
   children,
   bottomNav = true,
   className,
 }: CustomerShellProps) {
+  useCustomerAuthGuard();
   useOrderTicker();
 
   return (

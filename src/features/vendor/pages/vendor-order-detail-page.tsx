@@ -16,6 +16,7 @@ import { ROUTES } from "@/utils/constants";
 import { formatNaira, formatTime, formatDayLabel } from "@/utils/format";
 import { useVendorDemo, vendorDemoActions } from "@/features/vendor/api";
 import {
+  VendorAuthGuard,
   VendorButton,
   VendorCard,
   VendorConfirmDialog,
@@ -46,6 +47,7 @@ export function VendorOrderDetailPage({ orderId }: { orderId: string }) {
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">
+      <VendorAuthGuard />
       <VendorHeader backHref={ROUTES.vendor.orders} backLabel="Orders" />
       <VendorPageContainer width="wide" className="flex-1 py-6 sm:py-10">
         {!order ? (
