@@ -2,7 +2,7 @@
 /// Caches the app shell and static assets only. Never caches API responses,
 /// auth/session data, or authenticated pages — those always go to network.
 
-const CACHE_NAME = "droply-vendor-v1";
+const CACHE_NAME = "droply-vendor-v2";
 
 // Public shell pages + assets safe to serve offline.
 const PRECACHE_URLS = [
@@ -15,6 +15,8 @@ const PRECACHE_URLS = [
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/apple-touch-icon.png",
+  "/brand/droply-logo-light.png",
+  "/brand/droply-logo-dark.png",
 ];
 
 // Paths that must never be cached (auth, APIs, private data).

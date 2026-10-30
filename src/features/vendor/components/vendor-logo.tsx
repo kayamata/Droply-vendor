@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Store } from "lucide-react";
 
+import { DroplyLogo } from "@/shared/components/brand";
 import { cn } from "@/utils/cn";
 import { ROUTES } from "@/utils/constants";
 
@@ -10,9 +10,8 @@ interface VendorLogoProps {
 }
 
 /**
- * DROPly wordmark for the vendor portal — same brand, "Vendor" context tag.
- * The customer app ships an image logo; this keeps the same orange-forward
- * treatment with a store mark for the business side.
+ * DROPly wordmark for the vendor portal — the official logo with a small
+ * "Vendor" context tag. The logo artwork swaps automatically with theme.
  */
 export function VendorLogo({ href = ROUTES.vendor.root, className }: VendorLogoProps) {
   return (
@@ -20,20 +19,13 @@ export function VendorLogo({ href = ROUTES.vendor.root, className }: VendorLogoP
       href={href}
       aria-label="DROPly Vendor — home"
       className={cn(
-        "flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+        "flex shrink-0 items-end gap-2 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
         className
       )}
     >
-      <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[0_4px_12px_rgba(232,90,29,0.25)]">
-        <Store className="size-5" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="text-lg font-bold tracking-tight text-primary">
-          DROPly
-        </span>
-        <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
-          Vendor
-        </span>
+      <DroplyLogo className="h-8" />
+      <span className="pb-0.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+        Vendor
       </span>
     </Link>
   );

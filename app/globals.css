@@ -175,3 +175,15 @@
 .animate-fade-in {
   animation: 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards fadeInUp;
 }
+
+/* DROPly brand logo — automatic theme switching.
+   <DroplyLogo> renders both supplied artworks; these rules show the right
+   one off the app's .dark theme class so the correct version appears on
+   first paint — no JS, no flash of the wrong logo. */
+.droply-logo-dark {
+  display: none;
+}
+.dark .droply-logo-light {
+  display: none;
+}
+.dark .droply-logo-dark {
